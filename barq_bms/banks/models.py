@@ -4,6 +4,9 @@ class Bank(models.Model):
     name = models.CharField(max_length=100)
     is_islamic = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
 
 class Branch(models.Model):
     name = models.CharField(max_length=100)
