@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Account - BARQ BMS</title>
+</head>
+<body>
+    <h2>My Account</h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    
+    {% if account %}
+        <div>
+            <h3>Account Details</h3>
+            <p><strong>User:</strong> {{ account.user.username }}</p>
+            <p><strong>Branch:</strong> {{ account.branch.name }}</p>
+            <p><strong>Balance:</strong> ${{ account.balance }}</p>
+        </div>
+    {% else %}
+        <p>No account information available.</p>
+    {% endif %}
+    
+    <p>Welcome, {{ user.username }}!</p>
+    <a href="/admin/logout/">Logout</a>
+</body>
+</html>
