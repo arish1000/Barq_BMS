@@ -4,6 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Bank
 
 @login_required
-def bankView(request):
+def bank_view(request):
     banks = Bank.objects.all().values('id', 'name', 'is_islamic')
     return JsonResponse(list(banks), safe=False)
